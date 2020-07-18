@@ -1,14 +1,110 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        a {
+            color: unset !important;
+            text-decoration: unset !important;
+        }
+
+        html,
+        body {
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #282A39;
+            display: grid;
+            place-items: center;
+        }
+
+        #container {
+            background-color: #FFFDFF;
+            width: 500px;
+            min-height: 700px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 25px;
+            box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        #logo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+        }
+
+        #name {
+            text-align: center;
+            font-size: 17pt;
+        }
+
+        #links {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 10px 10px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        #links>* {
+            height: 50px;
+            width: 200px;
+            background-color: lightgray;
+            border-radius: 10px;
+            padding: 5px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-only {
+            display: block !important;
+            background-color: unset !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+        }
+
+        #links>*>img {
+            height: 100%;
+            margin-right: 15px;
+        }
+
+        /*TODO: mobile*/
+    </style>
     <title>Work in progress</title>
-    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
 </head>
+
 <body>
-    <header>
-        <h1>Work in progress</h1>
-    </header>
+    <div id="container">
+        <img src="logo.png" id="logo">
+        <p id="name">Fabian<br>@profiluefter</p>
+        <div id="links">
+            <a href="https://github.com/profiluefter">
+                <img src="logos/github.svg">
+                Github
+            </a>
+            <a href="https://gitlab.com/profiluefter">
+                <img src="logos/gitlab.svg">
+                Gitlab
+            </a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                Placeholder
+            </a>
+            <a href="https://ctftime.org/team/89971" class="logo-only">
+                <img src="logos/ctftime.svg">
+            </a>
+        </div>
+    </div>
 </body>
+
 </html>
