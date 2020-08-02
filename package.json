@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export"
+    "dev": "gulp && next dev",
+    "build": "gulp && next build",
+    "start": "gulp && next start",
+    "export": "gulp && next export"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -24,6 +24,9 @@
     "eslint": "^7.6.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.20.5",
+    "gulp": "^4.0.2",
+    "json-schema-to-typescript": "^9.1.1",
+    "through2": "^4.0.2",
     "typescript": "^3.9.7"
   }
 }
