@@ -1,0 +1,14 @@
+name: JSON Validator
+
+on: [pull_request, push]
+
+jobs:
+  verify-json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Validate JSON files
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: ./public/data/projects.schema.json
+          INPUT_JSONS: ./public/data/projects.json

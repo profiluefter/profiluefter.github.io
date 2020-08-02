@@ -1,0 +1,48 @@
+{
+  "projects": [
+    {
+      "id": "profiluefter.me",
+      "title": "This website",
+      "teaser": "The website you're looking at right now",
+      "state": "wip",
+      "links": [
+        {
+          "type": "github",
+          "link": "profiluefter/profiluefter.github.io"
+        }
+      ],
+      "language": "js",
+      "tags": [
+        "frontend"
+      ],
+      "usedTechnologies": [
+        "react"
+      ]
+    },
+    {
+      "id": "gram-frontend",
+      "title": "GraM Frontend",
+      "teaser": "A alternative React-based Frontend for a teacher's grading system",
+      "state": "on-hold",
+      "language": "js",
+      "tags": [
+        "frontend"
+      ],
+      "usedTechnologies": [
+        "react"
+      ]
+    }
+  ],
+  "technologies": [
+    {
+      "id": "react",
+      "name": "React.js"
+    }
+  ],
+  "languages": [
+    {
+      "id": "js",
+      "name": "JavaScript"
+    }
+  ]
+}
