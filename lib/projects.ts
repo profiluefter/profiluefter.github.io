@@ -1,8 +1,26 @@
-import {Projects} from "../types/projects";
+import {ProjectData, RawProjectData} from "../types/projects";
 import fs from "fs";
 import path from "path";
 
-export default (): Projects => {
+export default (): ProjectData => {
 	const projectsRaw = fs.readFileSync(path.join(process.cwd(), "public/data/projects.json"), "utf8");
-	return JSON.parse(projectsRaw);
+	const projectData: RawProjectData = JSON.parse(projectsRaw);
+
+	projectData.projects.forEach((project, index, projects) => {
+		projects[index] = Object.assign({}, {
+			// Defaults
+			description: project.teaser,
+			links: [],
+			related: [],
+			startDate: null,
+			endDate: null
+		}, project, {
+			//Overrides
+			language: projectData.languages.find(language => language.id === project.language),
+			usedTechnologies: project.usedTechnologies.map(id =>
+				projectData.technologies.find(technology => technology.id === id))
+		});
+	});
+
+	return <ProjectData><unknown>projectData;
 };

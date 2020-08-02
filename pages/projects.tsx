@@ -12,10 +12,10 @@ import Select from "react-select";
 import Layout from "../components/Layout";
 import ProjectList from "../components/ProjectList";
 import getProjects from "../lib/projects";
-import {Projects} from "../types/projects";
+import {ProjectData} from "../types/projects";
 
 interface ProjectsProps {
-	projects: Projects;
+	projects: ProjectData;
 }
 
 const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {

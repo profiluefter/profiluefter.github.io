@@ -1,11 +1,11 @@
 import React from 'react';
 import Project from "./Project";
-import {Projects} from '../types/projects';
+import {ProjectData} from '../types/projects';
 
 interface ProjectListProps {
 	filters: string[];
 	search: string;
-	projectData: Projects;
+	projectData: ProjectData;
 }
 
 const ProjectList: React.FC<ProjectListProps> = ({filters, search, projectData}) => {
