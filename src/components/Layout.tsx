@@ -4,9 +4,17 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
 import Link from "next/link";
+import Head from "next/head";
 
-const Layout: React.FC = ({children}) => (
-	<div>
+interface LayoutProps {
+	title: string
+}
+
+const Layout: React.FC<LayoutProps> = ({children, title}) => (
+	<>
+		<Head>
+			<title>{title} | profiluefter.me</title>
+		</Head>
 		<Navbar variant="dark" bg="dark" expand="sm" sticky="top">
 			<Navbar.Brand>profiluefter.me</Navbar.Brand>
 			<Navbar.Toggle/>
@@ -18,7 +26,7 @@ const Layout: React.FC = ({children}) => (
 			</Navbar.Collapse>
 		</Navbar>
 		{children}
-	</div>
+	</>
 );
 
 export default Layout;

@@ -34,7 +34,7 @@ const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {
 	];
 
 	return (
-		<Layout>
+		<Layout title="Projects">
 			<Jumbotron>
 				<h1>Projects</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi error eum exercitationem, in ipsum
