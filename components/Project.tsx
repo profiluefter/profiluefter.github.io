@@ -1,12 +1,13 @@
 import React from 'react';
 import {Project as ProjectData} from "../types/projects";
 import Card from "react-bootstrap/Card";
+import Badge from "react-bootstrap/Badge";
 
 interface ProjectProps {
 	data: ProjectData
 }
 
-const Project: React.FC<ProjectProps> = ({data: {title, teaser, language, links}}) => {
+const Project: React.FC<ProjectProps> = ({data: {title, teaser, language, links, state}}) => {
 	const linkElements: JSX.Element[] = links.map((link, key) => {
 		switch (link.type) {
 			case "github":
@@ -16,10 +17,15 @@ const Project: React.FC<ProjectProps> = ({data: {title, teaser, language, links}
 		}
 	});
 
+	const stateString = ["TODO", "WIP", "Finished", "On Hold", "Abandoned"];
+
 	return (
 		<Card body style={{marginBottom: 5, width: "18rem"}}>
 			<Card.Title>{title}</Card.Title>
-			<Card.Subtitle className="mb-2 text-muted">{language.name}</Card.Subtitle>
+			<Card.Subtitle className="mb-2">
+				<span className="text-muted">{language.name}</span>
+				<Badge variant="info" className="ml-1">{stateString[state]}</Badge>
+			</Card.Subtitle>
 			<Card.Text>{teaser}</Card.Text>
 			{linkElements}
 		</Card>

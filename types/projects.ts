@@ -1,9 +1,9 @@
 export enum ProjectState {
-	TODO,
-	WIP,
-	Finished,
-	OnHold,
-	Abandoned
+	TODO = 0,
+	WIP = 1,
+	Finished = 2,
+	OnHold = 3,
+	Abandoned = 4
 }
 
 export interface Technology {

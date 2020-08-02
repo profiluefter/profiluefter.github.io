@@ -18,7 +18,8 @@ export default (): ProjectData => {
 			//Overrides
 			language: projectData.languages.find(language => language.id === project.language),
 			usedTechnologies: project.usedTechnologies.map(id =>
-				projectData.technologies.find(technology => technology.id === id))
+				projectData.technologies.find(technology => technology.id === id)),
+			state: ["todo", "wip", "finished", "on-hold", "abandoned"].indexOf(project.state)
 		});
 	});
 
