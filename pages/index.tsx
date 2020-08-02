@@ -1,8 +1,10 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from "react";
+import Layout from "../components/Layout";
 
-export default function Home(): JSX.Element {
-	return (
-		<></>
-	)
-}
+const Home: React.FC = () => (
+	<Layout>
+		<h1 className="display-1 text-center">Work in Progress!</h1>
+	</Layout>
+);
+
+export default Home;
