@@ -19,8 +19,19 @@ interface ProjectsProps {
 }
 
 const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {
-	const [search, setSearch] = useState<string>();
-	const [filters, setFilters] = useState<string[]>();
+	const [search, setSearch] = useState<string>("");
+	const [filters, setFilters] = useState<string[]>([]);
+
+	const filterData = [
+		{
+			label: "Languages",
+			options: projects.languages.map(language => ({value: language.id, label: language.name}))
+		},
+		{
+			label: "Technologies",
+			options: projects.technologies.map(technology => ({value: technology.id, label: technology.name}))
+		}
+	];
 
 	return (
 		<Layout>
@@ -33,11 +44,16 @@ const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {
 			</Jumbotron>
 			<Container>
 				<Row className="mb-5">
-					<Col className="pl-0" sm={8}>
-						<FormControl placeholder="Search" onChange={event => setSearch(event.target.value)}/>
+					<Col className="pl-0 d-flex align-items-center" sm={8}>
+						<FormControl placeholder="Search" onChange={event => setSearch(event.target.value)}
+						             defaultValue={search}
+						/>
 					</Col>
 					<Col className="pr-0" sm={4}>
-						<Select placeholder="Filter" onChange={(event => setFilters(event.target.value))}/>
+						{/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+						<Select placeholder="Filter" onChange={(values => setFilters(values === null ? [] : (values as any[]).map(value => value.value)))}
+						        isMulti options={filterData}
+						        className="text-dark"/>
 					</Col>
 				</Row>
 				<Row><ProjectList search={search} filters={filters} projectData={projects}/></Row>

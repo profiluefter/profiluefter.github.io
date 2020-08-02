@@ -9,13 +9,20 @@ interface ProjectListProps {
 }
 
 const ProjectList: React.FC<ProjectListProps> = ({filters, search, projectData}) => {
-	const projectElements: JSX.Element[] = [];
+	const searchKeywords = search.trim().length == 0 ? [] : search.trim().split(" ");
 
-	for (const project of projectData.projects) {
-		projectElements.push(
-			<Project key={project.id} data={project}/>
-		);
-	}
+	const projectElements: JSX.Element[] =
+		projectData.projects
+			.filter(project =>
+				filters.length == 0 ||
+				filters.every(tech =>
+					project.language.id === tech ||
+					project.usedTechnologies.some(used => used.id === tech)))
+			.filter(project =>
+				searchKeywords.length == 0 ||
+				searchKeywords.some(keyword =>
+					project.tags.some(tag => tag.includes(keyword))))
+			.map(project => <Project key={project.id} data={project}/>);
 
 	return (
 		<div className="d-flex flex-wrap justify-content-between w-100">
