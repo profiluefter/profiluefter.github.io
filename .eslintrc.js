@@ -24,11 +24,10 @@ module.exports = {
     },
     rules: {
         'react/prop-types': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/interface-name-prefix': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/ban-ts-ignore': 'off',
-        'react/react-in-jsx-scope': 'off'
+        'react/react-in-jsx-scope': 'off',
+        "semi": ["error", "always"]
     },
     globals: {React: 'writable'}
 };

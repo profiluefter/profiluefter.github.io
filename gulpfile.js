@@ -19,4 +19,4 @@ exports.default = () => {
         .src('public/data/projects.schema.json')
         .pipe(jsonType())
         .pipe(gulp.dest('types'));
-}
+};
