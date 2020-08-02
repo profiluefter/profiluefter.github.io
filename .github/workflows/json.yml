@@ -1,6 +1,14 @@
 name: JSON Validator
 
-on: [pull_request, push]
+on:
+  pull_request:
+    paths:
+      - "public/data/projects.json"
+      - "public/data/projects.schema.json"
+  push:
+    paths:
+      - "public/data/projects.json"
+      - "public/data/projects.schema.json"
 
 jobs:
   verify-json:
