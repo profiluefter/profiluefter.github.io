@@ -21,13 +21,28 @@ const ProjectList: React.FC<ProjectListProps> = ({filters, search, projectData})
 			.filter(project =>
 				searchKeywords.length == 0 ||
 				searchKeywords.some(keyword =>
-					project.tags.some(tag => tag.includes(keyword))))
+					project.tags.some(tag => tag.toLowerCase().includes(keyword.toLowerCase()))) ||
+				searchKeywords.some(keyword => project.title.toLowerCase().includes(keyword.toLowerCase())))
 			.map(project => <Project key={project.id} data={project}/>);
 
 	return (
-		<div className="d-flex flex-wrap justify-content-between w-100">
-			{projectElements}
-		</div>
+		<>
+			<div className="w-100">
+				{projectElements}
+			</div>
+			<style jsx>{`
+				div {
+					display: grid;
+					grid-template-columns: repeat(3, 1fr);
+					grid-gap: 3rem;
+				}
+			`}</style>
+			<style global>{`
+				html {
+				overflow-y: scroll;
+				}
+			`}</style>
+		</>
 	);
 };
 

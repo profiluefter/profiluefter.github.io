@@ -20,14 +20,20 @@ const Project: React.FC<ProjectProps> = ({data: {title, teaser, language, links,
 	const stateString = ["TODO", "WIP", "Finished", "On Hold", "Abandoned"];
 
 	return (
-		<Card body style={{marginBottom: 5, width: "18rem"}}>
-			<Card.Title>{title}</Card.Title>
-			<Card.Subtitle className="mb-2">
-				<span className="text-muted">{language.name}</span>
-				<Badge variant="info" className="ml-1">{stateString[state]}</Badge>
-			</Card.Subtitle>
-			<Card.Text>{teaser}</Card.Text>
-			{linkElements}
+		<Card>
+			<Card.Body className="d-flex flex-column">
+				<Card.Title className="d-flex justify-content-between">
+					{title}
+					<Badge variant="info">{stateString[state]}</Badge>
+				</Card.Title>
+				<Card.Subtitle className="mb-2">
+					<span className="text-muted">{language.name}</span>
+				</Card.Subtitle>
+				<Card.Text>{teaser}</Card.Text>
+				<div className="mt-auto">
+					{linkElements}
+				</div>
+			</Card.Body>
 		</Card>
 	);
 };

@@ -42,7 +42,7 @@ const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {
 					vero
 					voluptates.</p>
 			</Jumbotron>
-			<Container>
+			<Container className="mb-5">
 				<Row className="mb-5">
 					<Col className="pl-0 d-flex align-items-center" sm={8}>
 						<FormControl placeholder="Search" onChange={event => setSearch(event.target.value)}
