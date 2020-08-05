@@ -21,8 +21,16 @@ const ProjectList: React.FC<ProjectListProps> = ({filters, search, projectData})
 			.filter(project =>
 				searchKeywords.length == 0 ||
 				searchKeywords.some(keyword =>
+					// Search in tags
 					project.tags.some(tag => tag.toLowerCase().includes(keyword.toLowerCase()))) ||
-				searchKeywords.some(keyword => project.title.toLowerCase().includes(keyword.toLowerCase())))
+				searchKeywords.some(keyword =>
+					// Search in title
+					project.title.toLowerCase().includes(keyword.toLowerCase())) ||
+				searchKeywords.some(keyword =>
+					// Search in usedTechnologies
+					project.usedTechnologies.some(used =>
+						used.name.toLowerCase().includes(keyword.toLowerCase()) ||
+						used.id.toLowerCase().includes(keyword.toLowerCase()))))
 			.map(project => <Project key={project.id} data={project}/>);
 
 	return (
