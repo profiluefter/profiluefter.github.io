@@ -37,11 +37,6 @@ const ProjectList: React.FC<ProjectListProps> = ({filters, search, projectData})
 					grid-gap: 3rem;
 				}
 			`}</style>
-			<style global>{`
-				html {
-				overflow-y: scroll;
-				}
-			`}</style>
 		</>
 	);
 };
