@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {Project as ProjectData} from "../types/projects";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";

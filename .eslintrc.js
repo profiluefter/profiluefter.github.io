@@ -1,12 +1,12 @@
 module.exports = {
-    parser: '@typescript-eslint/parser',
+    parser: "@typescript-eslint/parser",
     extends: [
-        'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended'
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     settings: {
         react: {
-            version: 'detect'
+            version: "detect"
         }
     },
     env: {
@@ -14,20 +14,21 @@ module.exports = {
         node: true,
         es6: true
     },
-    plugins: ['@typescript-eslint', 'react'],
+    plugins: ["@typescript-eslint", "react"],
     parserOptions: {
         ecmaFeatures: {
             jsx: true
         },
         ecmaVersion: 2018,
-        sourceType: 'module'
+        sourceType: "module"
     },
     rules: {
-        'react/prop-types': 'off',
-        '@typescript-eslint/interface-name-prefix': 'off',
-        '@typescript-eslint/ban-ts-ignore': 'off',
-        'react/react-in-jsx-scope': 'off',
-        "semi": ["error", "always"]
+        "react/prop-types": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/ban-ts-ignore": "off",
+        "react/react-in-jsx-scope": "off",
+        "semi": ["error", "always"],
+        "quotes": ["error", "double"]
     },
-    globals: {React: 'writable'}
+    globals: {React: "writable"}
 };

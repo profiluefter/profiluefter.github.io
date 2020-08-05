@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import Project from "./Project";
-import {ProjectData} from '../types/projects';
+import {ProjectData} from "../types/projects";
 
 interface ProjectListProps {
 	filters: string[];
