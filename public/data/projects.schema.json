@@ -37,7 +37,8 @@
                   "type": "string",
                   "enum": [
                     "github",
-                    "gitlab"
+                    "gitlab",
+                    "jetbrains"
                   ]
                 },
                 "link": {

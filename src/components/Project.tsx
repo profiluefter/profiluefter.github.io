@@ -11,9 +11,12 @@ const Project: React.FC<ProjectProps> = ({data: {title, teaser, language, links,
 	const linkElements: JSX.Element[] = links.map((link, key) => {
 		switch (link.type) {
 			case "github":
-				return <Card.Link key={key} href={"https://github.com/" + link.link}>GitHub</Card.Link>;
+				return <Card.Link key={key} href={`https://github.com/${link.link}/`}>GitHub</Card.Link>;
 			case "gitlab":
-				return <Card.Link key={key} href={"https://gitlab.com/" + link.link}>GitLab</Card.Link>;
+				return <Card.Link key={key} href={`https://gitlab.com/${link.link}/`}>GitLab</Card.Link>;
+			case "jetbrains":
+				return <Card.Link key={key}
+				                  href={`https://plugins.jetbrains.com/plugin/${link.link}/`}>JetBrains</Card.Link>;
 		}
 	});
 

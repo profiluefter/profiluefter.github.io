@@ -63,7 +63,7 @@ const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {
 					<Row><ProjectList search={search} filters={filters} projectData={projects}/></Row>
 				</Container>
 			</Layout>
-			<style global>{`
+			<style global jsx>{`
 				html {
 				overflow-y: scroll;
 				}
