@@ -13,7 +13,9 @@
       ],
       "language": "ts",
       "tags": [
-        "frontend"
+        "frontend",
+        "ci",
+        "deployment"
       ],
       "usedTechnologies": [
         "react",
@@ -31,14 +33,18 @@
       "state": "on-hold",
       "language": "js",
       "tags": [
-        "frontend"
+        "frontend",
+        "ci",
+        "deployment",
+        "alternative",
+        "workflow"
       ],
       "usedTechnologies": [
         "react",
         "npm",
         "actions",
         "bootstrap",
-        "cfworker",
+        "cf-worker",
         "gh-pages"
       ],
       "related": [
@@ -57,10 +63,18 @@
       "language": "js",
       "state": "on-hold",
       "usedTechnologies": [
-        "cfworker"
+        "cf-worker"
       ],
       "teaser": "A Cloudflare Worker that exposes the PHP-Frontend of a teacher's grading system as an API",
-      "tags": [],
+      "tags": [
+        "backend",
+        "ci",
+        "deployment",
+        "api",
+        "html parser",
+        "php",
+        "client"
+      ],
       "related": [
         "gram-frontend"
       ],
@@ -75,7 +89,12 @@
       "id": "management-bot",
       "language": "java",
       "state": "finished",
-      "tags": [],
+      "tags": [
+        "discord",
+        "community",
+        "evaluate",
+        "code execution"
+      ],
       "title": "Management Bot",
       "teaser": "A discord bot developed for our class' discord server",
       "usedTechnologies": [
@@ -96,7 +115,13 @@
       "id": "gram-app",
       "language": "java",
       "state": "on-hold",
-      "tags": [],
+      "tags": [
+        "application",
+        "api client",
+        "html parser",
+        "php client",
+        "mobile"
+      ],
       "title": "GraM Android App",
       "teaser": "An Android App for easier use of a teacher's grading system",
       "usedTechnologies": [
@@ -108,7 +133,12 @@
       "id": "plugin-system",
       "language": "java",
       "state": "abandoned",
-      "tags": [],
+      "tags": [
+        "experiment",
+        "runtime",
+        "plug and play",
+        "framework"
+      ],
       "title": "Plugin System",
       "teaser": "A experiment using Java Reflections and Runtime JAR loading",
       "usedTechnologies": [
@@ -122,7 +152,11 @@
       "state": "on-hold",
       "title": "Moodle Plugin",
       "teaser": "An Intellij-Plugin that enables using Moodle directly in the IDE",
-      "tags": [],
+      "tags": [
+        "workflow optimization",
+        "school",
+        "jetbrains"
+      ],
       "usedTechnologies": [
         "gradle",
         "intellij"
@@ -141,15 +175,27 @@
           "link": "TODO"
         }
       ],
-      "related": ["netbeans-exporter"]
+      "related": [
+        "netbeans-exporter"
+      ]
     },
     {
       "id": "netbeans-exporter",
-      "related": ["moodle-plugin"],
+      "related": [
+        "moodle-plugin"
+      ],
       "language": "kotlin",
-      "usedTechnologies": ["gradle"],
+      "usedTechnologies": [
+        "gradle"
+      ],
       "teaser": "A IntelliJ plugin that can export a IntelliJ Project using the NetBeans Project format",
-      "tags": [],
+      "tags": [
+        "workflow optimization",
+        "school",
+        "intellij",
+        "netbeans",
+        "jetbrains"
+      ],
       "state": "finished",
       "links": [
         {
@@ -168,7 +214,10 @@
       "teaser": "My first major programming project: A general purpose Discord Bot",
       "language": "java",
       "state": "finished",
-      "tags": [],
+      "tags": [
+        "discord",
+        "api"
+      ],
       "title": "Discord Bot",
       "usedTechnologies": [
         "jda",
@@ -185,7 +234,15 @@
       "id": "pos-gen",
       "language": "csharp",
       "state": "finished",
-      "tags": [],
+      "tags": [
+        "workflow optimization",
+        "school",
+        "netbeans",
+        "generator",
+        "windows program",
+        "command line interface",
+        "cli"
+      ],
       "teaser": "A simple NetBeans Project Generator using some specific settings",
       "title": "PosGen",
       "usedTechnologies": [],
@@ -210,7 +267,15 @@
       ],
       "language": "java",
       "state": "finished",
-      "tags": [],
+      "tags": [
+        "reflections",
+        "rapid development",
+        "school",
+        "library",
+        "framework",
+        "cli",
+        "command line interface"
+      ],
       "title": "CLI-Gui",
       "teaser": "A Java Framework for very fast generation of command line menus",
       "usedTechnologies": [
@@ -231,9 +296,18 @@
       "id": "math-graph",
       "language": "kotlin",
       "state": "finished",
-      "tags": [],
+      "tags": [
+        "kotlin",
+        "language learning",
+        "experiment",
+        "mathematics",
+        "graph",
+        "visualizer"
+      ],
       "teaser": "A math formula graph generator - my first Kotlin project",
-      "usedTechnologies": [],
+      "usedTechnologies": [
+        "javafx"
+      ],
       "title": "Math Graph Thing",
       "links": [
         {
@@ -246,7 +320,14 @@
       "id": "do-you-notice",
       "language": "csharp",
       "state": "abandoned",
-      "tags": [],
+      "tags": [
+        "windows",
+        "onenote",
+        "program",
+        "wpf",
+        "storage",
+        "serialization"
+      ],
       "title": "Do You Notice",
       "teaser": "A primitive ScratchPad with touchscreen and Linux support",
       "usedTechnologies": []
@@ -255,10 +336,22 @@
       "id": "dslcord",
       "language": "kotlin",
       "state": "wip",
-      "tags": [],
+      "tags": [
+        "dsl",
+        "efficiency",
+        "rapid prototyping",
+        "framework",
+        "kotlin",
+        "discord"
+      ],
       "title": "DSLCord",
       "teaser": "A Kotlin Framework for making a DiscordBot with very little code",
-      "usedTechnologies": ["gradle", "jda", "junit", "dsl"]
+      "usedTechnologies": [
+        "gradle",
+        "jda",
+        "junit",
+        "dsl"
+      ]
     },
     {
       "id": "chip9",
@@ -271,7 +364,15 @@
         }
       ],
       "state": "abandoned",
-      "tags": [],
+      "tags": [
+        "ctf",
+        "emulator",
+        "memory management",
+        "processor",
+        "low level",
+        "binary",
+        "assembly"
+      ],
       "usedTechnologies": [],
       "language": "c"
     },
@@ -279,13 +380,22 @@
       "id": "midisync",
       "title": "MIDI-Sync",
       "language": "js",
-      "usedTechnologies": ["npm"],
-      "tags": [],
+      "usedTechnologies": [
+        "npm"
+      ],
+      "tags": [
+        "synchronized",
+        "multi-device",
+        "music",
+        "fullstack"
+      ],
       "state": "abandoned",
-      "links": [{
-        "type": "gitlab",
-        "link": "profiluefter/midisync"
-      }],
+      "links": [
+        {
+          "type": "gitlab",
+          "link": "profiluefter/midisync"
+        }
+      ],
       "teaser": "A distributed MIDI player that uses a lot of smartphones for playback"
     }
   ],
@@ -299,7 +409,7 @@
       "name": "Next.js"
     },
     {
-      "id": "cfworker",
+      "id": "cf-worker",
       "name": "Cloudflare Worker"
     },
     {
@@ -353,6 +463,10 @@
     {
       "id": "dsl",
       "name": "Domain Specific Language"
+    },
+    {
+      "id": "javafx",
+      "name": "JavaFX"
     }
   ],
   "languages": [
