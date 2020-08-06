@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, {useState} from "react";
 import {GetStaticProps} from "next";
 
 import Jumbotron from "react-bootstrap/Jumbotron";
@@ -9,16 +10,16 @@ import Col from "react-bootstrap/Col";
 
 import Select from "react-select";
 
-import Layout from "../components/Layout";
-import ProjectList from "../components/ProjectList";
-import getProjects from "../lib/projects";
-import {ProjectData} from "../types/projects";
+import Layout from "../../components/Layout";
+import ProjectList from "../../components/ProjectList";
+import getProjects from "../../lib/projects";
+import {ProjectData} from "../../types/projects";
 
-interface ProjectsProps {
+interface ProjectListPageProps {
 	projects: ProjectData;
 }
 
-const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {
+const ProjectListPage: React.FC<ProjectListPageProps> = ({projects}) => {
 	const [search, setSearch] = useState<string>("");
 	const [filters, setFilters] = useState<string[]>([]);
 
@@ -37,13 +38,10 @@ const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {
 		<>
 			<Layout title="Projects" navbarSelected="projects">
 				<Jumbotron>
-					<h1>Projects</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi error eum exercitationem, in
-						ipsum
-						itaque iure minima neque non officiis quam quo quos reprehenderit, repudiandae tempore,
-						temporibus
-						vero
-						voluptates.</p>
+					<Container>
+						<h1>Projects</h1>
+						<p>Some of my more mature projects. Each project has a subpage with more information.</p>
+					</Container>
 				</Jumbotron>
 				<Container className="mb-5">
 					<Row className="mb-5">
@@ -53,7 +51,6 @@ const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {
 							/>
 						</Col>
 						<Col className="pr-0" sm={4}>
-							{/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
 							<Select placeholder="Filter"
 							        onChange={(values => setFilters(values === null ? [] : (values as any[]).map(value => value.value)))}
 							        isMulti options={filterData}
@@ -65,7 +62,7 @@ const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {
 			</Layout>
 			<style global jsx>{`
 				html {
-				overflow-y: scroll;
+					overflow-y: scroll;
 				}
 			`}</style>
 		</>
@@ -80,4 +77,4 @@ export const getStaticProps: GetStaticProps = async () => {
 	};
 };
 
-export default ProjectPage;
+export default ProjectListPage;

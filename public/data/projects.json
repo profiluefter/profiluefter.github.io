@@ -29,7 +29,7 @@
     {
       "id": "gram-frontend",
       "title": "GraM Frontend",
-      "teaser": "A alternative React-based Frontend for a teacher's grading system",
+      "teaser": "An alternative React-based Frontend for a teacher's grading system",
       "state": "on-hold",
       "language": "js",
       "tags": [

@@ -1,5 +1,5 @@
 import React from "react";
-import Project from "./Project";
+import ProjectOverview from "./ProjectOverview";
 import {ProjectData} from "../types/projects";
 
 interface ProjectListProps {
@@ -31,7 +31,7 @@ const ProjectList: React.FC<ProjectListProps> = ({filters, search, projectData})
 					project.usedTechnologies.some(used =>
 						used.name.toLowerCase().includes(keyword.toLowerCase()) ||
 						used.id.toLowerCase().includes(keyword.toLowerCase()))))
-			.map(project => <Project key={project.id} data={project}/>);
+			.map(project => <ProjectOverview key={project.id} data={project}/>);
 
 	return (
 		<>

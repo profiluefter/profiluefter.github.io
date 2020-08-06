@@ -1,13 +1,16 @@
 import React from "react";
-import {Project as ProjectData} from "../types/projects";
+import Link from "next/link";
+
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 
-interface ProjectProps {
-	data: ProjectData
+import {Project} from "../types/projects";
+
+interface ProjectOverviewProps {
+	data: Project
 }
 
-const Project: React.FC<ProjectProps> = ({data: {title, teaser, language, links, state}}) => {
+const ProjectOverview: React.FC<ProjectOverviewProps> = ({data: {id, title, teaser, language, links, state}}) => {
 	const linkElements: JSX.Element[] = links.map((link, key) => {
 		switch (link.type) {
 			case "github":
@@ -26,7 +29,7 @@ const Project: React.FC<ProjectProps> = ({data: {title, teaser, language, links,
 		<Card>
 			<Card.Body className="d-flex flex-column">
 				<Card.Title className="d-flex justify-content-between">
-					{title}
+					<Link href="/projects/[id]" as={`/projects/${id}`}><a className="text-white">{title}</a></Link>
 					<Badge variant="info">{stateString[state]}</Badge>
 				</Card.Title>
 				<Card.Subtitle className="mb-2">
@@ -41,4 +44,4 @@ const Project: React.FC<ProjectProps> = ({data: {title, teaser, language, links,
 	);
 };
 
-export default Project;
+export default ProjectOverview;
