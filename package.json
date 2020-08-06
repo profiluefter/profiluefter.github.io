@@ -9,7 +9,6 @@
     "export": "next export"
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
     "bootswatch": "^4.5.0",
     "next": "9.5.1",
     "react": "16.13.1",
@@ -25,6 +24,8 @@
     "eslint": "^7.6.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.20.5",
+    "gulp": "^4.0.2",
+    "gulp-sitemap": "^7.6.0",
     "typescript": "^3.9.7"
   }
 }

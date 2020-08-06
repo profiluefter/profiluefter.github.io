@@ -19,6 +19,8 @@ jobs:
         run: npm run build
       - name: Export static website
         run: npm run export
+      - name: Generate sitemap
+        run: gulp sitemap
       - name: Deploy website to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
