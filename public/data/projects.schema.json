@@ -38,7 +38,8 @@
                   "enum": [
                     "github",
                     "gitlab",
-                    "jetbrains"
+                    "jetbrains",
+                    "web"
                   ]
                 },
                 "link": {

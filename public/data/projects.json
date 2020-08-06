@@ -9,6 +9,10 @@
         {
           "type": "github",
           "link": "profiluefter/profiluefter.github.io"
+        },
+        {
+          "type": "web",
+          "link": "https://profiluefter.me"
         }
       ],
       "language": "ts",
@@ -56,6 +60,10 @@
         {
           "type": "github",
           "link": "profiluefter/GraM-Frontend"
+        },
+        {
+          "type": "web",
+          "link": "https://gram.profiluefter.me"
         }
       ]
     },
@@ -79,7 +87,8 @@
         "client"
       ],
       "related": [
-        "gram-frontend"
+        "gram-frontend",
+        "gram-app"
       ],
       "links": [
         {

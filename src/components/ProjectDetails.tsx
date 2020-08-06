@@ -44,6 +44,9 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({data}) => (
 									case "gitlab":
 										return <a key={key} className="mx-1"
 										          href={`https://gitlab.com/${link.link}/`}>GitLab</a>;
+									case "web":
+										return <a key={key} className="mx-1"
+										          href={link.link}>Website</a>;
 									case "jetbrains":
 										return <a key={key} className="mx-1"
 										          href={`https://plugins.jetbrains.com/plugin/${link.link}/`}>JetBrains</a>;
@@ -62,9 +65,9 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({data}) => (
                     <div>
                         <b className="w-100 d-block text-center">Related Projects</b>
                         <div className="d-flex justify-content-around">{data.related.map(project =>
-							<Link href="/projects/[id]" as={`/projects/${project.id}`} key={project.id}>
-								<a>{project.title}</a>
-							</Link>
+	                        <Link href="/projects/[id]" as={`/projects/${project.id}`} key={project.id}>
+		                        <a className="mx-1">{project.title}</a>
+	                        </Link>
 						)}</div>
                     </div>
 					}
@@ -73,7 +76,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({data}) => (
 			<Row className="justify-content-between">
 				<Col xs={8} className="bg-dark m-3 p-3 rounded">
 					<h3 className="mb-3">Description</h3>
-					{data.description}
+					{data.description.split("\n").map((paragraph, index) => <p key={index}>{paragraph}</p>)}
 				</Col>
 				<Col xs={3} className="bg-dark m-3 p-3 rounded">
 					<h3 className="mb-3">Built with</h3>

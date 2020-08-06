@@ -17,6 +17,8 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({data: {id, title, teas
 				return <Card.Link key={key} href={`https://github.com/${link.link}/`}>GitHub</Card.Link>;
 			case "gitlab":
 				return <Card.Link key={key} href={`https://gitlab.com/${link.link}/`}>GitLab</Card.Link>;
+			case "web":
+				return <Card.Link key={key} href={link.link}>Website</Card.Link>;
 			case "jetbrains":
 				return <Card.Link key={key}
 				                  href={`https://plugins.jetbrains.com/plugin/${link.link}/`}>JetBrains</Card.Link>;
