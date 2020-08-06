@@ -35,7 +35,7 @@ const ProjectPage: React.FC<ProjectsProps> = ({projects}) => {
 
 	return (
 		<>
-			<Layout title="Projects">
+			<Layout title="Projects" navbarSelected="projects">
 				<Jumbotron>
 					<h1>Projects</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi error eum exercitationem, in

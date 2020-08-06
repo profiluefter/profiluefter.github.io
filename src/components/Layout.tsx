@@ -7,10 +7,11 @@ import Link from "next/link";
 import Head from "next/head";
 
 interface LayoutProps {
-	title: string
+	title: string,
+	navbarSelected?: string
 }
 
-const Layout: React.FC<LayoutProps> = ({children, title}) => (
+const Layout: React.FC<LayoutProps> = ({children, title, navbarSelected}) => (
 	<>
 		<Head>
 			<title>{title} | profiluefter.me</title>
@@ -20,8 +21,10 @@ const Layout: React.FC<LayoutProps> = ({children, title}) => (
 			<Navbar.Toggle/>
 			<Navbar.Collapse>
 				<Nav>
-					<Link href="/"><a className="nav-link">About</a></Link>
-					<Link href="/projects"><a className="nav-link">Projects</a></Link>
+					<Link href="/"><a
+						className={"nav-link" + (navbarSelected === "home" ? " active" : "")}>About</a></Link>
+					<Link href="/projects"><a
+						className={"nav-link" + (navbarSelected === "projects" ? " active" : "")}>Projects</a></Link>
 				</Nav>
 			</Navbar.Collapse>
 		</Navbar>
