@@ -15,6 +15,9 @@ const Layout: React.FC<LayoutProps> = ({children, title, navbarSelected}) => (
 	<>
 		<Head>
 			<title>{title} | profiluefter.me</title>
+			<meta property="og:title" content={title}/>
+			<meta property="og:type" content="website"/>
+			<meta property="og:site_name" content="profiluefter.me"/>
 		</Head>
 		<Navbar variant="dark" bg="dark" expand="sm" sticky="top">
 			<Navbar.Brand>profiluefter.me</Navbar.Brand>
