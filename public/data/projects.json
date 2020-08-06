@@ -410,7 +410,7 @@
     },
     {
       "id": "cf-worker",
-      "name": "Cloudflare Worker"
+      "name": "Cloudflare Workers"
     },
     {
       "id": "npm",

@@ -26,7 +26,6 @@ interface ProjectCommon {
 	title: string,
 	teaser: string,
 	description: string,
-	related: string[],
 	tags: string[],
 }
 
@@ -37,6 +36,7 @@ export interface Project extends ProjectCommon {
 	endDate: Date,
 	usedTechnologies: Technology[],
 	language: Language
+	related: { id: string, title: string }[],
 }
 
 export interface RawProject extends ProjectCommon {
@@ -49,6 +49,7 @@ export interface RawProject extends ProjectCommon {
 	endDate: string,
 	usedTechnologies: string[],
 	language: string
+	related: string[],
 }
 
 export interface ProjectData {

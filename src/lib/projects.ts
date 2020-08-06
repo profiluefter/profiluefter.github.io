@@ -11,7 +11,6 @@ export default (): ProjectData => {
 			// Defaults
 			description: project.teaser,
 			links: [],
-			related: [],
 			startDate: null,
 			endDate: null
 		}, project, {
@@ -19,7 +18,10 @@ export default (): ProjectData => {
 			language: projectData.languages.find(language => language.id === project.language),
 			usedTechnologies: project.usedTechnologies.map(id =>
 				projectData.technologies.find(technology => technology.id === id)),
-			state: ["todo", "wip", "finished", "on-hold", "abandoned"].indexOf(project.state)
+			state: ["todo", "wip", "finished", "on-hold", "abandoned"].indexOf(project.state),
+			related: project.related === undefined ?
+				[] :
+				project.related.map(id => ({id, title: projectData.projects.find(project => project.id === id).title}))
 		});
 	});
 
