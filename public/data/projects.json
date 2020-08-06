@@ -30,6 +30,7 @@
       "id": "gram-frontend",
       "title": "GraM Frontend",
       "teaser": "An alternative React-based Frontend for a teacher's grading system",
+      "description": "I started this project because I wanted to learn React.js. The Plan was to make a better frontend for GraM, because the PHP-based original would refresh and reset the position on each request. Because of this I started building a (pretty much feature complete) Android App in 2018/19.\nAfter I came up with the idea of this I noticed that this couldn't be done purely client-side because of missing CORS-Headers on the GraM servers. So I created a API with proper CORS-Headers and as an additional benefit: HTTPS\nMy webapp uses Redux to store the global state such as the fetched data. I also implemented Polling using redux-saga which refreshes the data every minute by default. It is also installable as a Progressive Web App and uses client-side asset caching for nearly instant page loading after the first visit. I used a dark themed version of Bootstrap for the design because my own designs look bad :/",
       "state": "on-hold",
       "language": "js",
       "tags": [
@@ -48,7 +49,8 @@
         "gh-pages"
       ],
       "related": [
-        "grapi"
+        "grapi",
+        "gram-app"
       ],
       "links": [
         {
@@ -66,6 +68,7 @@
         "cf-worker"
       ],
       "teaser": "A Cloudflare Worker that exposes the PHP-Frontend of a teacher's grading system as an API",
+      "description": "I wanted to build something with React.js and had the idea of my GraM-Frontend project. I couldn't build it purely client-side because of missing CORS-Headers on the GraM-Site that prevented me from making requests and reading the response. I initially wanted to give up on this project because of this limitation.\nThe API is hosted using Cloudflare Workers which is server-side JavaScript that is executed on each request on a Cloudflare Server near your location. When you make eg. a login request, the Worker will make a request to the PHP frontend of GraM and obtain a login cookie that way. It is then sent back as JSON data so that the application can make other requests.\nAfter creating this I remembered that I had created an Android App in 2018/19 which fetched the whole page (including inline CSS and HTML) on each refresh of the data. Using this API not only prevents stealing passwords in our unsecured school WIFI but also saves a lot of data and battery power by offloading the HTML parsing to Cloudflare!\nCurrently there is no support for viewing or ticking homework because I can't reverse engineer it without an active homework on my account.",
       "tags": [
         "backend",
         "ci",
@@ -152,6 +155,7 @@
       "state": "on-hold",
       "title": "Moodle Plugin",
       "teaser": "An Intellij-Plugin that enables using Moodle directly in the IDE",
+      "description": "In programming class in school we get provided with tasks via a Moodle instance. Now that I can use IntelliJ instead of Netbeans (the teachers use Netbeans to grade homeworks) because of my Netbeans-Exporter - I wanted to improve my workflow even more: Getting the task, programming it and submitting it in one program.\nThis plugin creates a new Toolbar in IntelliJ with an Overview of the contents of a Moodle course and a detailed view of each task. I'm using the official Moodle API.\nCurrently there is only read access (no submitting yet) and HTML-rendering somewhat works. I'm waiting for the embedded Chromium in IntelliJ to become more widely used so I can use it as well without sacrificing backwards-compatibility too much.",
       "tags": [
         "workflow optimization",
         "school",
