@@ -43,14 +43,14 @@ const ProjectListPage: React.FC<ProjectListPageProps> = ({projects}) => {
 						<p>Some of my more mature projects. Each project has a subpage with more information.</p>
 					</Container>
 				</Jumbotron>
-				<Container className="mb-5">
+				<Container className="mb-5 px-5 px-md-0">
 					<Row className="mb-5">
-						<Col className="pl-0 d-flex align-items-center" sm={8}>
+						<Col md={8} className="p-0 pr-md-3 d-flex align-items-center">
 							<FormControl placeholder="Search" onChange={event => setSearch(event.target.value)}
 							             defaultValue={search}
 							/>
 						</Col>
-						<Col className="pr-0" sm={4}>
+						<Col md={4} className="p-0 pl-md-3">
 							<Select placeholder="Filter"
 							        onChange={(values => setFilters(values === null ? [] : (values as any[]).map(value => value.value)))}
 							        isMulti options={filterData}

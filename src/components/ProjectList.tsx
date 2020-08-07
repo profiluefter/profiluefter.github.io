@@ -33,17 +33,30 @@ const ProjectList: React.FC<ProjectListProps> = ({filters, search, projectData})
 						used.id.toLowerCase().includes(keyword.toLowerCase()))))
 			.map(project => <ProjectOverview key={project.id} data={project}/>);
 
+	// language=CSS
 	return (
 		<>
 			<div className="w-100">
 				{projectElements}
 			</div>
 			<style jsx>{`
-				div {
-					display: grid;
-					grid-template-columns: repeat(3, 1fr);
-					grid-gap: 3rem;
-				}
+                div {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-gap: 3rem;
+                }
+
+                @media (min-width: 768px) {
+                    div {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                @media (min-width: 992px) {
+                    div {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
 			`}</style>
 		</>
 	);
