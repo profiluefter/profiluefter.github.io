@@ -1,6 +1,30 @@
 {
   "projects": [
     {
+      "id": "mailcord",
+      "language": "kotlin",
+      "state": "wip",
+      "tags": [
+        "smtp",
+        "imap",
+        "email",
+        "discord"
+      ],
+      "links": [
+        {
+          "type": "gitlab",
+          "link": "snailventilator/mailcord"
+        }
+      ],
+      "teaser": "An email client that you can control using discord",
+      "startDate": "2020-09-01",
+      "usedTechnologies": [
+        "gradle",
+        "jda"
+      ],
+      "title": "Mailcord"
+    },
+    {
       "id": "irc-cord",
       "language": "go",
       "state": "finished",
@@ -19,8 +43,8 @@
         "go-modules",
         "discordgo"
       ],
-      "startDate": "2020-8-25",
-      "endDate": "2020-8-28",
+      "startDate": "2020-08-25",
+      "endDate": "2020-08-28",
       "links": [
         {
           "type": "github",
