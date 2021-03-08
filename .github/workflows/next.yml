@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  pull_request:
 
 jobs:
   deploy:
@@ -23,6 +24,7 @@ jobs:
         run: gulp sitemap
       - name: Deploy website to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
+        if: github.event_name == 'push'
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
