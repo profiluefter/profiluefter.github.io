@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/profiluefter
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://profiluefter.me
+  * I am profiluefter (https://keybase.io/profiluefter) on keybase.
+  * I have a public key ASBrZWsxpzezZMpPT-XjR0jTc7up56VGiLW5Mq_PQj0gwwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01206b656b31a737b364ca4f4fe5e34748d373bba9e7a54688b5b932afcf423d20c30a",
+      "host": "keybase.io",
+      "kid": "01206b656b31a737b364ca4f4fe5e34748d373bba9e7a54688b5b932afcf423d20c30a",
+      "uid": "33494b03bffd702b48d7584d52b1f219",
+      "username": "profiluefter"
+    },
+    "merkle_root": {
+      "ctime": 1610318542,
+      "hash": "4c219d682ae636a4eedd6b1ff82a4c568b54f90dfbdec67d904c5c14c566e6af75472ea8f925b5fd1119cc58cd189064aeac34afc3229546d086bce27982f4a4",
+      "hash_meta": "5d088a157cd62d31955bc0182989863e18a2afb5a55647382d058e3a227ce0b8",
+      "seqno": 18682369
+    },
+    "service": {
+      "entropy": "ErHUqIM6t5wiuNROTolkrnA/",
+      "hostname": "profiluefter.me",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.0"
+  },
+  "ctime": 1610318548,
+  "expire_in": 504576000,
+  "prev": "322bd82c1f1e65222f0535471e51202da9b5f7d9cb9261122c61f6ff48bb707c",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEga2VrMac3s2TKT0/l40dI03O7qeelRoi1uTKvz0I9IMMKp3BheWxvYWTESpcCCcQgMivYLB8eZSIvBTVHHlEgLam199nLkmESLGH2/0i7cHzEIOA0RqwqLJvdDabomANHVYNgNjIMIFI9nQOUmPekE8loAgHCo3NpZ8RA9+Ic2VAbyEQs52mG5ZMYdbnWUfIJX9pAFLgTXDTKKYabhgspKizFL7GbQVP+bu/DRfQTodPDVsKtpWu0cQkJCahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIOsI2Mmtgp6ZXC+3u7YflKCJDmFkI1kLF54QjSUOyoVno3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/profiluefter
+
+==================================================================
