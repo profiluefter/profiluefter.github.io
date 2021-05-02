@@ -12,11 +12,10 @@ import Select from "react-select";
 
 import Layout from "../../components/Layout";
 import ProjectList from "../../components/ProjectList";
-import getProjects from "../../lib/projects";
-import {ProjectData} from "../../types/projects";
+import {getNotionProjectPages, NotionProject} from "../../lib/notion";
 
 interface ProjectListPageProps {
-	projects: ProjectData;
+	projects: NotionProject[];
 }
 
 const ProjectListPage: React.FC<ProjectListPageProps> = ({projects}) => {
@@ -26,11 +25,17 @@ const ProjectListPage: React.FC<ProjectListPageProps> = ({projects}) => {
 	const filterData = [
 		{
 			label: "Languages",
-			options: projects.languages.map(language => ({value: language.id, label: language.name}))
+			options: Array.from(new Set(projects.map(i => i.properties.language))).map(i => ({
+				value: i,
+				label: i
+			})).filter(i => i.value !== "???")
 		},
 		{
 			label: "Technologies",
-			options: projects.technologies.map(technology => ({value: technology.id, label: technology.name}))
+			options: Array.from(new Set(projects.flatMap(i => i.properties.usedTechnologies))).map(i => ({
+				value: i,
+				label: i
+			})).filter(i => i.value !== "???")
 		}
 	];
 
@@ -40,7 +45,7 @@ const ProjectListPage: React.FC<ProjectListPageProps> = ({projects}) => {
 				<Jumbotron>
 					<Container>
 						<h1>Projects</h1>
-						<p>Some of my more mature projects. Each project has a subpage with more information.</p>
+						<p>Some of my more mature projects. Each project has a subpage with additional information.</p>
 					</Container>
 				</Jumbotron>
 				<Container className="mb-5 px-5 px-md-0">
@@ -57,13 +62,13 @@ const ProjectListPage: React.FC<ProjectListPageProps> = ({projects}) => {
 							        className="text-dark"/>
 						</Col>
 					</Row>
-					<Row><ProjectList search={search} filters={filters} projectData={projects}/></Row>
+					<Row><ProjectList search={search} filters={filters} projects={projects}/></Row>
 				</Container>
 			</Layout>
 			<style global jsx>{`
-				html {
-					overflow-y: scroll;
-				}
+              html {
+                overflow-y: scroll;
+              }
 			`}</style>
 		</>
 	);
@@ -72,7 +77,7 @@ const ProjectListPage: React.FC<ProjectListPageProps> = ({projects}) => {
 export const getStaticProps: GetStaticProps = async () => {
 	return {
 		props: {
-			projects: getProjects()
+			projects: await getNotionProjectPages()
 		}
 	};
 };

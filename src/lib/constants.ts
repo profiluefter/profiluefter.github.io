@@ -1,0 +1,1 @@
+export const stateString = ["Planned", "Incremental", "In Progress", "On-Hold", "Rewrite Needed", "Abandoned", "Finished"];

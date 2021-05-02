@@ -3,14 +3,14 @@ import Link from "next/link";
 
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
-
-import {Project} from "../types/projects";
+import {NotionProjectProperties} from "../lib/notion";
+import {stateString} from "../lib/constants";
 
 interface ProjectOverviewProps {
-	data: Project
+	project: NotionProjectProperties
 }
 
-const ProjectOverview: React.FC<ProjectOverviewProps> = ({data: {id, title, teaser, language, links, state}}) => {
+const ProjectOverview: React.FC<ProjectOverviewProps> = ({project: {id, title, teaser, language, links, state}}) => {
 	const linkElements: JSX.Element[] = links.map((link, key) => {
 		switch (link.type) {
 			case "github":
@@ -25,8 +25,6 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({data: {id, title, teas
 		}
 	});
 
-	const stateString = ["TODO", "WIP", "Finished", "On Hold", "Abandoned"];
-
 	return (
 		<Card>
 			<Card.Body className="d-flex flex-column">
@@ -35,7 +33,7 @@ const ProjectOverview: React.FC<ProjectOverviewProps> = ({data: {id, title, teas
 					<Badge variant="info">{stateString[state]}</Badge>
 				</Card.Title>
 				<Card.Subtitle className="mb-2">
-					<span className="text-muted">{language.name}</span>
+					<span className="text-muted">{language}</span>
 				</Card.Subtitle>
 				<Card.Text>{teaser}</Card.Text>
 				<div className="mt-auto">
