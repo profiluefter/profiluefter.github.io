@@ -22,13 +22,18 @@ jobs:
         run: npm install
       - name: Build next.js app
         run: npm run build
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_PAGE: ${{ secrets.NOTION_PAGE }}
+          NOTION_COLLECTION: ${{ secrets.NOTION_COLLECTION }}
+          NOTION_QUERY: ${{ secrets.NOTION_QUERY }}
       - name: Export static website
         run: npm run export
       - name: Generate sitemap
         run: gulp sitemap
       - name: Deploy website to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
