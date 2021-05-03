@@ -1,23 +1,23 @@
 import React from "react";
 import ProjectOverview from "./ProjectOverview";
-import {ProjectData} from "../types/projects";
+import {NotionProject} from "../lib/notion";
 
 interface ProjectListProps {
 	filters: string[];
 	search: string;
-	projectData: ProjectData;
+	projects: NotionProject[];
 }
 
-const ProjectList: React.FC<ProjectListProps> = ({filters, search, projectData}) => {
+const ProjectList: React.FC<ProjectListProps> = ({filters, search, projects}) => {
 	const searchKeywords = search.trim().length == 0 ? [] : search.trim().split(" ");
 
 	const projectElements: JSX.Element[] =
-		projectData.projects
+		projects.map(project => project.properties)
 			.filter(project =>
 				filters.length == 0 ||
 				filters.every(tech =>
-					project.language.id === tech ||
-					project.usedTechnologies.some(used => used.id === tech)))
+					project.language === tech ||
+					project.usedTechnologies.some(used => used === tech)))
 			.filter(project =>
 				searchKeywords.length == 0 ||
 				searchKeywords.some(keyword =>
@@ -29,9 +29,8 @@ const ProjectList: React.FC<ProjectListProps> = ({filters, search, projectData})
 				searchKeywords.some(keyword =>
 					// Search in usedTechnologies
 					project.usedTechnologies.some(used =>
-						used.name.toLowerCase().includes(keyword.toLowerCase()) ||
-						used.id.toLowerCase().includes(keyword.toLowerCase()))))
-			.map(project => <ProjectOverview key={project.id} data={project}/>);
+						used.toLowerCase().includes(keyword.toLowerCase()))))
+			.map(project => <ProjectOverview key={project.id} project={project}/>);
 
 	// language=CSS
 	return (

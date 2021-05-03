@@ -1,12 +1,10 @@
 import React from "react";
 import {GetStaticPaths, GetStaticProps} from "next";
-
-import {Project} from "../../types/projects";
-import getProjects from "../../lib/projects";
 import ProjectDetails from "../../components/ProjectDetails";
+import {getNotionProjectPage, getNotionProjectPages, NotionProject} from "../../lib/notion";
 
 interface ProjectPageProps {
-	data: Project
+	data: NotionProject
 }
 
 const ProjectPage: React.FC<ProjectPageProps> = ({data}) => {
@@ -16,9 +14,9 @@ const ProjectPage: React.FC<ProjectPageProps> = ({data}) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-	paths: getProjects().projects.map(project => ({
+	paths: (await getNotionProjectPages()).map(project => ({
 		params: {
-			id: project.id
+			id: project.properties.id
 		}
 	})),
 	fallback: false
@@ -26,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 
 export const getStaticProps: GetStaticProps = async ({params}) => ({
 	props: {
-		data: getProjects().projects.find(project => project.id === params.id)
+		data: await getNotionProjectPage(params.id as string)
 	}
 });
 

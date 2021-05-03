@@ -1,9 +1,11 @@
 export enum ProjectState {
 	TODO = 0,
-	WIP = 1,
-	Finished = 2,
+	Incremental = 1,
+	WIP = 2,
 	OnHold = 3,
-	Abandoned = 4
+	RewriteNeeded = 4,
+	Abandoned = 5,
+	Finished = 6
 }
 
 export interface Technology {
@@ -17,7 +19,7 @@ export interface Language {
 }
 
 export interface ProjectLink {
-	type: string,
+	type: "github" | "gitlab" | "jetbrains" | "web",
 	link: string
 }
 
