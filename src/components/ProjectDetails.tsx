@@ -10,6 +10,7 @@ import Badge from "react-bootstrap/Badge";
 import Layout from "./Layout";
 import {NotionProject} from "../lib/notion";
 import {stateString} from "../lib/constants";
+import {NotionRenderer} from "react-notion/dist";
 
 interface ProjectDetailsProps {
 	data: NotionProject
@@ -77,7 +78,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({data: {properties, page}
 			<Row className="justify-content-between">
 				<Col lg={8} className="bg-dark m-3 p-3 rounded">
 					<h3 className="mb-3">Description</h3>
-					{/* TODO: Render page */}
+					<NotionRenderer blockMap={page}/>
 				</Col>
 				<Col lg={3} className="bg-dark mx-3 m-lg-3 p-3 rounded">
 					<h3 className="mb-3">Built with</h3>

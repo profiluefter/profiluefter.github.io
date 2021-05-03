@@ -1,7 +1,8 @@
 import {NotionAPI} from "notion-client";
-import {ExtendedRecordMap} from "notion-types";
 import {ProjectLink, ProjectState} from "../types/projects";
 import {stateString} from "./constants";
+import {BlockMapType} from "react-notion";
+import {ExtendedRecordMap} from "notion-types";
 
 export interface NotionProjectProperties {
 	id: string;
@@ -20,15 +21,29 @@ export interface NotionProjectProperties {
 
 export interface NotionProject {
 	properties: NotionProjectProperties
-	page: ExtendedRecordMap
+	page: BlockMapType
 }
+
+const apiCache: Map<string, ExtendedRecordMap> = new Map();
 
 export const getNotionProjectPages = async (): Promise<NotionProject[]> => {
 	const [notionToken, notionPage, notionCollection, notionQuery] =
 		["NOTION_TOKEN", "NOTION_PAGE", "NOTION_COLLECTION", "NOTION_QUERY"].map(i => process.env[i]);
 
 	const api = new NotionAPI({authToken: notionToken});
-	const data = await api.getPage(notionPage);
+
+	const apiRequest = async (page: string): Promise<ExtendedRecordMap> => {
+		if (apiCache.has(page))
+			return apiCache.get(page);
+		else {
+			console.log("Making api call...");
+			const response = await api.getPage(page);
+			apiCache.set(page, response);
+			return response;
+		}
+	};
+
+	const data = await apiRequest(notionPage);
 
 	const mappedData = await Promise.all(data.collection_query[notionCollection][notionQuery].blockIds
 		.map(async id => { // This maps Notion property ids
@@ -71,14 +86,17 @@ export const getNotionProjectPages = async (): Promise<NotionProject[]> => {
 								title: "???"
 							}))
 				},
-				page: await api.getPage(id)
+				page: (await apiRequest(id)).block as BlockMapType // Necessary because of two different libraries
 			});
 		}));
 
 	// Find correct title for related projects
 	mappedData.forEach(project => project.properties.related
-		.forEach(relatedProject => relatedProject.title =
-			mappedData.find(i => i.properties.notionID == relatedProject.id).properties.title));
+		.forEach(relatedProjectEntry => {
+			const relatedProject = mappedData.find(i => i.properties.notionID == relatedProjectEntry.id);
+			relatedProjectEntry.id = relatedProject.properties.id;
+			relatedProjectEntry.title = relatedProject.properties.title;
+		}));
 
 	return mappedData;
 };
