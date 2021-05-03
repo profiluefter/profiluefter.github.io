@@ -23,7 +23,7 @@
     "@typescript-eslint/parser": "^4.8.1",
     "eslint": "^7.25.0",
     "eslint-loader": "^4.0.2",
-    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react": "^7.23.2",
     "gulp": "^4.0.2",
     "gulp-sitemap": "^8.0.0",
     "typescript": "^4.0.2"
