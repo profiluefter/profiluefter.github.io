@@ -751,10 +751,10 @@ bn.js@^5.1.1:
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-5.1.2.tgz#c9686902d3c9a27729f43ab10f9d79c2004da7b0"
   integrity sha512-40rZaf3bUNKTVYu9sIeeEGOg7g14Yvnj9kH7b50EiwX0Q7A6umbvfI5tvHaOERH0XigqKkfLkFQxzb4e6CIXnA==
 
-bootswatch@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-4.6.0.tgz#295237ed0e118decb3e3543f2ac14e9bb8ae48ea"
-  integrity sha512-Yr6YqFBC8jwTzoJoLViYlvO97IhPWGqZEm+6FXHfD/G6gbUok6sZkdXxdh4Zb6iCGEwr9p7zGCn38yKQD/bh2Q==
+bootswatch@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/bootswatch/-/bootswatch-5.0.0.tgz#da1c9b2ca697163975683824ffbaa425ee3d4f40"
+  integrity sha512-IXmloGK/UjGvs22+3sSht4zK2dXK8EWV9j6NzLp/7EoVwi0Rg3to1Y99tAi16h4uHtoE32ci08Hx9yhhoCKKYA==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
