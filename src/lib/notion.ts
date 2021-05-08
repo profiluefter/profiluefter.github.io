@@ -37,6 +37,7 @@ export const getNotionProjectPages = async (): Promise<NotionProject[]> => {
 			return apiCache.get(page);
 		else {
 			console.log("Making api call...");
+			console.log(JSON.stringify(process.env));
 			const response = await api.getPage(page);
 			apiCache.set(page, response);
 			return response;
