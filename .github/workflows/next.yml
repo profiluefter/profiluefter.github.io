@@ -28,10 +28,19 @@ jobs:
         run: gulp sitemap
       - name: Deploy website to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v4
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
           BRANCH: gh-pages
           FOLDER: out
           GIT_CONFIG_NAME: GitHub Actions
           GIT_CONFIG_EMAIL: noreply@github.com
           CLEAN: true
+  automerge:
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.actor == 'dependabot[bot]'
+    steps:
+      - uses: fastify/github-action-merge-dependabot@main
+        with:
+          github-token: ${{secrets.github_token}}
+          merge-method: "rebase"
