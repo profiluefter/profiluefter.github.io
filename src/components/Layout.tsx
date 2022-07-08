@@ -1,4 +1,4 @@
-import React from "react";
+import {FC} from "react";
 
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -11,17 +11,17 @@ interface LayoutProps {
 	navbarSelected?: string
 }
 
-const Layout: React.FC<LayoutProps> = ({children, title, navbarSelected}) => (
+const Layout: FC<LayoutProps> = ({children, title, navbarSelected}) => (
 	<>
 		<Head>
-			<title>{title} | profiluefter.me</title>
-			<meta property="og:title" content={title}/>
-			<meta property="og:type" content="website"/>
-			<meta property="og:site_name" content="profiluefter.me"/>
+			<title>{title + " | profiluefter.me"}</title>
+			<meta property="og:title" content={title} />
+			<meta property="og:type" content="website" />
+			<meta property="og:site_name" content="profiluefter.me" />
 		</Head>
 		<Navbar variant="dark" bg="dark" expand="sm" sticky="top">
 			<Navbar.Brand>profiluefter.me</Navbar.Brand>
-			<Navbar.Toggle/>
+			<Navbar.Toggle />
 			<Navbar.Collapse>
 				<Nav>
 					<Link href="/"><a

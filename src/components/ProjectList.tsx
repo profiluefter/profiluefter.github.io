@@ -1,4 +1,4 @@
-import React from "react";
+import {FC} from "react";
 import ProjectOverview from "./ProjectOverview";
 import {ProjectData} from "../types/projects";
 
@@ -8,7 +8,7 @@ interface ProjectListProps {
 	projectData: ProjectData;
 }
 
-const ProjectList: React.FC<ProjectListProps> = ({filters, search, projectData}) => {
+const ProjectList: FC<ProjectListProps> = ({filters, search, projectData}) => {
 	const searchKeywords = search.trim().length == 0 ? [] : search.trim().split(" ");
 
 	const projectElements: JSX.Element[] =

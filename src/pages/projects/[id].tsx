@@ -1,4 +1,4 @@
-import React from "react";
+import {FC} from "react";
 import {GetStaticPaths, GetStaticProps} from "next";
 
 import {Project} from "../../types/projects";
@@ -6,12 +6,12 @@ import getProjects from "../../lib/projects";
 import ProjectDetails from "../../components/ProjectDetails";
 
 interface ProjectPageProps {
-	data: Project
+	data: Project;
 }
 
-const ProjectPage: React.FC<ProjectPageProps> = ({data}) => {
+const ProjectPage: FC<ProjectPageProps> = ({data}) => {
 	return (
-		<ProjectDetails data={data}/>
+		<ProjectDetails data={data} />
 	);
 };
 

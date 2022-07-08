@@ -1,4 +1,4 @@
-import React from "react";
+import {FC} from "react";
 import Link from "next/link";
 
 import Card from "react-bootstrap/Card";
@@ -10,7 +10,7 @@ interface ProjectOverviewProps {
 	data: Project
 }
 
-const ProjectOverview: React.FC<ProjectOverviewProps> = ({data: {id, title, teaser, language, links, state}}) => {
+const ProjectOverview: FC<ProjectOverviewProps> = ({data: {id, title, teaser, language, links, state}}) => {
 	const linkElements: JSX.Element[] = links.map((link, key) => {
 		switch (link.type) {
 			case "github":

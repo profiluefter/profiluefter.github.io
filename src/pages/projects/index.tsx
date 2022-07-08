@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {useState} from "react";
+import {FC, useState} from "react";
 import {GetStaticProps} from "next";
 
 import Jumbotron from "react-bootstrap/Jumbotron";
@@ -19,7 +19,7 @@ interface ProjectListPageProps {
 	projects: ProjectData;
 }
 
-const ProjectListPage: React.FC<ProjectListPageProps> = ({projects}) => {
+const ProjectListPage: FC<ProjectListPageProps> = ({projects}) => {
 	const [search, setSearch] = useState<string>("");
 	const [filters, setFilters] = useState<string[]>([]);
 
@@ -60,11 +60,6 @@ const ProjectListPage: React.FC<ProjectListPageProps> = ({projects}) => {
 					<Row><ProjectList search={search} filters={filters} projectData={projects}/></Row>
 				</Container>
 			</Layout>
-			<style global jsx>{`
-				html {
-					overflow-y: scroll;
-				}
-			`}</style>
 		</>
 	);
 };

@@ -1,4 +1,5 @@
-import React from "react";
+import {FC} from "react";
+
 import Link from "next/link";
 import Head from "next/head";
 
@@ -15,13 +16,13 @@ interface ProjectDetailsProps {
 	data: Project
 }
 
-const ProjectDetails: React.FC<ProjectDetailsProps> = ({data}) => (
+const ProjectDetails: FC<ProjectDetailsProps> = ({data}) => (
 	<Layout title={data.title}>
 		<Head>
-			<meta name="description" content={data.teaser}/>
-			<meta name="keywords" content={data.tags.join(", ")}/>
-			<meta name="og:url" content={`https://profiluefter.me/projects/${data.id}`}/>
-			<meta name="og:description" content={data.teaser}/>
+			<meta name="description" content={data.teaser} />
+			<meta name="keywords" content={data.tags.join(", ")} />
+			<meta name="og:url" content={`https://profiluefter.me/projects/${data.id}`} />
+			<meta name="og:description" content={data.teaser} />
 		</Head>
 		<Jumbotron>
 			<Container>
