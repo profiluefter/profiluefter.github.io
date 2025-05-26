@@ -11,15 +11,15 @@ jobs:
     name: Build and deploy to GH Pages
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 24
       - name: Install dependencies
         run: npm install
       - name: Build next.js app
@@ -29,7 +29,7 @@ jobs:
       - name: Generate sitemap
         run: gulp sitemap
       - name: Deploy website to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+        uses: JamesIves/github-pages-deploy-action@v4
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
           BRANCH: gh-pages
