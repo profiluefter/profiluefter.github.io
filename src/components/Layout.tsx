@@ -18,6 +18,7 @@ const Layout: FC<LayoutProps> = ({children, title, navbarSelected}) => (
 			<meta property="og:title" content={title} />
 			<meta property="og:type" content="website" />
 			<meta property="og:site_name" content="profiluefter.me" />
+			<link rel="me" href="https://layer8.space/@profiluefter" />
 		</Head>
 		<Navbar variant="dark" bg="dark" expand="sm" sticky="top">
 			<Navbar.Brand>profiluefter.me</Navbar.Brand>
