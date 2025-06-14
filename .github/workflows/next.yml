@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 24
       - name: Install dependencies
-        run: npm install
+        run: yarn install --frozen-lockfile
       - name: Build next.js app
         run: npm run build
       - name: Generate sitemap
@@ -30,11 +30,11 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
-          BRANCH: gh-pages
-          FOLDER: out
-          GIT_CONFIG_NAME: GitHub Actions
-          GIT_CONFIG_EMAIL: noreply@github.com
-          CLEAN: true
+          branch: gh-pages
+          folder: out
+          git-config-name: GitHub Actions
+          git-config-email: noreply@github.com
+          clean: true
   automerge:
     needs: deploy
     runs-on: ubuntu-latest
