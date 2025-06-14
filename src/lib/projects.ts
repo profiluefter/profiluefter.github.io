@@ -2,7 +2,7 @@ import {ProjectData, RawProjectData} from "../types/projects";
 import fs from "fs";
 import path from "path";
 
-export default (): ProjectData => {
+const readProjectData = (): ProjectData => {
 	const projectsRaw = fs.readFileSync(path.join(process.cwd(), "public/data/projects.json"), "utf8");
 	const projectData: RawProjectData = JSON.parse(projectsRaw);
 
@@ -27,3 +27,5 @@ export default (): ProjectData => {
 
 	return <ProjectData><unknown>projectData;
 };
+
+export default readProjectData;

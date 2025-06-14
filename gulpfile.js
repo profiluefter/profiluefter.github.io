@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-
+/* eslint-disable @typescript-eslint/no-require-imports */
 const gulp = require("gulp");
 const sitemap = require("gulp-sitemap");
 

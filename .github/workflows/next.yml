@@ -23,7 +23,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build next.js app
-        run: npm run build
+        run: yarn build
+      - name: Run linter
+        run: yarn lint
       - name: Generate sitemap
         run: gulp sitemap
       - name: Deploy website to GitHub Pages

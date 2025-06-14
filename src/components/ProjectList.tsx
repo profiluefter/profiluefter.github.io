@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, ReactElement} from "react";
 import ProjectOverview from "./ProjectOverview";
 import {ProjectData} from "../types/projects";
 
@@ -11,7 +11,7 @@ interface ProjectListProps {
 const ProjectList: FC<ProjectListProps> = ({filters, search, projectData}) => {
 	const searchKeywords = search.trim().length == 0 ? [] : search.trim().split(" ");
 
-	const projectElements: JSX.Element[] =
+	const projectElements: ReactElement[] =
 		projectData.projects
 			.filter(project =>
 				filters.length == 0 ||
@@ -39,7 +39,7 @@ const ProjectList: FC<ProjectListProps> = ({filters, search, projectData}) => {
 			<div className="w-100">
 				{projectElements}
 			</div>
-			<style jsx>{`
+			<style>{`
                 div {
                     display: grid;
                     grid-template-columns: 1fr;

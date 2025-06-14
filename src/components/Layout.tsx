@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, ReactNode} from "react";
 
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -8,7 +8,8 @@ import Head from "next/head";
 
 interface LayoutProps {
 	title: string,
-	navbarSelected?: string
+	navbarSelected?: string,
+	children: ReactNode
 }
 
 const Layout: FC<LayoutProps> = ({children, title, navbarSelected}) => (
