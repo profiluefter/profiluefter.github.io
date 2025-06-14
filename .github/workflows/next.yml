@@ -24,8 +24,6 @@ jobs:
         run: npm install
       - name: Build next.js app
         run: npm run build
-      - name: Export static website
-        run: npm run export
       - name: Generate sitemap
         run: gulp sitemap
       - name: Deploy website to GitHub Pages
